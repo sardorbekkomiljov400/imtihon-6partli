@@ -2,12 +2,12 @@
 
 import HeroHeader from "@/components/HeroHeader";
 import Gallery from "@/components/NewsWrapper";
-import { IconArrowRight, IconLike, IconShop } from "@/public/icons/page";
-import Link from "next/link";
+import {  IconLike, IconShop } from "@/public/icons/page";
 import { useEffect, useState } from "react";
 import Button from "@/components/Button";
 import Image from "next/image";
 import { addCartItem, getAll } from "@/service/page";
+import { Link } from "@/i18n/navigation";
 
 
 type ProductType = {
@@ -128,6 +128,7 @@ const Menu = () => {
             <div className="grid grid-cols-4 gap-10 mb-10">
               {selectedCategory?.products?.map((p: ProductType) => (
                 <div key={p.id}>
+                <Link href={`product/${p.id}`}>\
                   <div className="bg-[#FFFFFF66] px-5 pb-4.75 pt-40 rounded-[38px] mb-20">
                     <div className="relative">
                       <div className="absolute -top-60 -left-3 w-60.75">
@@ -163,10 +164,11 @@ const Menu = () => {
                           icon={<IconShop/>}
                           iconPost="left"
                           extraStyle="bg-black p-[13px] rounded-[5px] text-[#ffffff]"
-                        />
+                          />
                       </div>
                     </div>
                   </div>
+                          </Link>
                 </div>
               ))}
             </div>

@@ -59,3 +59,13 @@ export const addCartItem = (body: {
     body: JSON.stringify(body),
   });
 };
+
+export const sendContact = (body: {name:string; email:string, phone:string, message:string}) =>{
+  return fetch(`${BASE_URL}contact`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(body),
+  })
+}

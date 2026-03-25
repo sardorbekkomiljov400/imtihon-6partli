@@ -57,7 +57,10 @@ const RegisterPage = () => {
 
       toast.success("Royxatdan o'tish muvaffaqiyatli!", { duration: 3000, position: "top-center" });
 
-      router.push("/sign-in");
+         setTimeout(() => {
+           router.push("/sign-in");
+      },1500);
+
 
     } catch (error: any) {
       toast.error("Xatolik yuz berdi: " + (error.message || "Server bilan bog'lanishda muammo"), { duration: 3000, position: "top-center" });
@@ -68,7 +71,6 @@ const RegisterPage = () => {
 
   return (
     <div className="containers flex py-15 justify-center relative">
-      <Toaster position="top-center" />
       <form onSubmit={handleSubmit} className="w-115.75 bg-[#cccccc] rounded-[31px]">
         <div className="flex flex-col items-center gap-8 py-10 px-13 relative pt-20 z-2">
           <h2 className="text-[32px] font-bold">Зарегистрироваться</h2>

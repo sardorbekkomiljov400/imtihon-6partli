@@ -5,13 +5,11 @@ import { Link } from "@/i18n/navigation";
 import { setCookie } from "cookies-next";
 import React, { useState } from "react";
 import { toast, Toaster } from "sonner";
-import { useRouter } from "next/navigation";
 import Input from "@/components/Input";
 import { LoginIcon1 } from "@/public/icons/page";
 import { SignIn } from "@/service/page";
 
 const LoginPage = () => {
-  const router = useRouter();
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -30,17 +28,21 @@ const LoginPage = () => {
 
       if (!res.ok) throw new Error(result.message || "Login failed");
 
+      // 1. Cookielarni saqlaymiz
       setCookie("token", result.data.accessToken);
       setCookie("user", `${result.data.user.firstName} ${result.data.user.lastName}`);
 
       toast.success("Profilga muvaffaqiyatli kirdingiz!", { position: "top-center" });
 
+      // 2. SAYTNI RENDER QILISH (Refresh):
+      // router.push ishlatmang, u Header-ni qayta yuklamaydi.
+      // window.location.href saytni to'liq render (refresh) qilib beradi.
       setTimeout(() => {
-        router.push("/");  
-      },1500);
+        window.location.href = "/"; 
+      }, 1000);
 
     } catch (error: any) {
-      toast.error("Xatolik yuz berdi: " + (error.message || "Server bilan bog'lanishda muammo"), { duration: 3000, position: "top-center" });
+      toast.error("Xatolik: " + (error.message || "Xato"), { position: "top-center" });
     } finally {
       setLoading(false);
     }
@@ -48,7 +50,6 @@ const LoginPage = () => {
 
   return (
     <div className="containers py-40 flex items-center justify-center relative">
-      <Toaster position="top-right" />
       <form onSubmit={handleSubmit} className="w-115.75 bg-[#cccccc] rounded-[31px]">
         <div className="flex flex-col items-start gap-8 py-10 px-13 relative pt-20 z-2">
           <div className="bg-black px-7 py-6 rounded-full absolute -top-10 border-6 border-[#cccccc]">

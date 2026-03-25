@@ -6,6 +6,7 @@ import { routing } from '@/i18n/rounting';
 import "./globals.css";
 import Header from '@/modules/header/page';
 import Footer from '@/modules/footer/page';
+import { Toaster } from 'sonner';
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -34,6 +35,7 @@ export default async function RootLayout({
           <Header/>
             {children}
           <Footer/>
+          <Toaster/>
         </NextIntlClientProvider>
       </body>
     </html>
