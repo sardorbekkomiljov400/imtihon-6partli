@@ -15,13 +15,9 @@ const Popular = () => {
   return (
     <section className="py-15 Popular-bg">
       <div className="containers">
-        <h2 className="text-[48px] text-[#000000] text-center font-extrabold mb-30">
-          {t("title")}
-        </h2>
-        <Carousel opts={{
-          align:'start'
-        }}>
-  <CarouselContent className="">
+        <h2 className="text-[48px] text-[#000000] text-center font-extrabold mb-30">{t("title")}</h2>
+        <Carousel opts={{align:'start'}}>
+  <CarouselContent>
     {dishes.map((item) => (
             <CarouselItem key={item} className="relative transition-transform duration-300   cursor-pointer basis-1 md:basis-1/2 lg:basis-1/4 mb-10">
               <div className="hero-bg rounded-[38px] pt-40 p-7.5 ">

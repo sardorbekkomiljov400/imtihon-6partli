@@ -84,45 +84,25 @@ const Menu = () => {
       <section className="hero-bg2 mb-13.75">
         <div className="containers relative p-15 hero-bg rounded-[50px]">
           <HeroHeader extraClass="mb-[107px]" />
-
           <div className="flex items-center mb-7.5">
           <Link href="/" className="text-gray-500 hover:text-black transition-colors duration-200">Главная</Link>
           <span className="mx-2 text-gray-400">›</span>
           <span className="text-black font-medium">Меню</span>
           </div>
-
           <h2 className="text-center mb-12.5 font-extrabold text-[48px] text-[#000000]">
             Меню
           </h2>
-
           <div className="justify-center flex mb-40">
             <div className="flex gap-4 bg-[#FFFFFF66] rounded-[27px] py-1.5 px-3">
               {categories.map((item, index) => (
-                <Button
-                  key={item.id}
-                  type="button"
-                  title={item.name}
-                  extraStyle={`rounded-[27px] border-transparent px-[8px] ${
-                    activeIndex === index ? "bg-[#ffffff] text-black" : "text-black"
-                  }`}
-                  onClick={() => {
-                    setActiveIndex(index);
-                    setSelectedCategory(item);
-                  }}
-                />
+                <Button key={item.id} type="button" title={item.name} extraStyle={`rounded-[27px] border-transparent px-[8px] ${  activeIndex === index ? "bg-[#ffffff] text-black" : "text-black"}`}
+                  onClick={() => { setActiveIndex(index); setSelectedCategory(item);}}/>
               ))}
             </div>
           </div>
-
           {selectedCategory && selectedCategory.products.length === 0 ? (
             <div className="flex justify-center mb-20">
-              <Image
-                src={"/images/not_img.gif"}
-                alt="img"
-                width={300}
-                height={300}
-                className="mix-blend-multiply text-3xl "  
-              />
+              <Image src={"/images/not_img.gif"} alt="img" width={300} height={300} className="mix-blend-multiply text-3xl "  />
             </div>
           ) : (
             <div className="grid grid-cols-4 gap-10 mb-10">
@@ -132,50 +112,30 @@ const Menu = () => {
                   <div className="bg-[#FFFFFF66] px-5 pb-4.75 pt-40 rounded-[38px] mb-20">
                     <div className="relative">
                       <div className="absolute -top-60 -left-3 w-60.75">
-                        <Image
-                          src={`https://anorkhulov.uz/${p.image}`}
-                          alt={p.name}
-                          width={243}
-                          height={253}
-                          className="rounded-lg object-cover"
-                        />
+                        <Image src={`https://anorkhulov.uz/${p.image}`} alt={p.name} width={243} height={253} className="rounded-lg object-cover"/>
                       </div>
-
                       <div className="flex items-start justify-between mb-1">
                         <div>
-                          <h3 className="font-bold text-[15px] text-[#000000] mb-1">
-                            {p.name}
-                          </h3>
-                          <p className="text-[15px] text-[#000000]">
-                            {p.description}
-                          </p>
+                          <h3 className="font-bold text-[15px] text-[#000000] mb-1">{p.name}</h3>
+                          <p className="text-[15px] text-[#000000]">{p.description}</p>
                         </div>
                         <div>
                           <IconLike />
                         </div>
                       </div>
-
                       <div className="flex items-end justify-between">
                         <strong>{p.price}$</strong>
-
-                        <Button
-                          onClick={() => handleAddToCart(Number(p.id))}
-                          type="button"
-                          icon={<IconShop/>}
-                          iconPost="left"
-                          extraStyle="bg-black p-[13px] rounded-[5px] text-[#ffffff]"
-                          />
+                        <Button onClick={() => handleAddToCart(Number(p.id))} type="button" icon={<IconShop/>} iconPost="left" extraStyle="bg-black p-[13px] rounded-[5px] text-[#ffffff]"/>
                       </div>
                     </div>
                   </div>
-                          </Link>
+                 </Link>
                 </div>
               ))}
             </div>
           )}
         </div>
       </section>
-
       <Gallery />
     </>
   );

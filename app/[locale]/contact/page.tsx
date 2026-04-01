@@ -46,7 +46,6 @@ const Contacts = () => {
         
         <div className="py-10">
           <ul className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-20 text-center items-start justify-center">
-            {/* Email */}
             <li className="flex flex-col items-center gap-4">
               <div className="w-16 h-16 flex items-center justify-center">
                 <Bround4icon />
@@ -86,35 +85,13 @@ const Contacts = () => {
           
           <form className="space-y-5" onSubmit={handleSubmit}>
             <div className="space-y-4">
-              <input 
-                type="text" 
-                name='namee'
-                placeholder="Ваше имя" 
-                className="w-full p-4 bg-gray-200/50 border border-gray-300/50 rounded-xl placeholder:text-gray-500 focus:outline-none focus:ring-1 focus:ring-black/30 transition-all"
-              />
-              <input 
-                type="email" 
-                name='email'
-                placeholder="Ваш E-mail" 
-                className="w-full p-4 bg-gray-200/50 border border-gray-300/50 rounded-xl placeholder:text-gray-500 focus:outline-none focus:ring-1 focus:ring-black/30 transition-all"
-              />
-              <input 
-                type="text" 
-                name='phone'
-                placeholder="Ваш номер телефона" 
-                className="w-full p-4 bg-gray-200/50 border border-gray-300/50 rounded-xl placeholder:text-gray-500 focus:outline-none focus:ring-1 focus:ring-black/30 transition-all"
-              />
-              <textarea 
-                placeholder="Ваше сообщение" 
-                rows={4}
-                name='message'
-                className="w-full p-4 bg-gray-200/50 border border-gray-300/50 rounded-xl placeholder:text-gray-500 focus:outline-none focus:ring-1 focus:ring-black/30 transition-all resize-none"
-              ></textarea>
+              <input  type="text"  name='namee' placeholder="Ваше имя"  className="w-full p-4 bg-gray-200/50 border border-gray-300/50 rounded-xl placeholder:text-gray-500 focus:outline-none focus:ring-1 focus:ring-black/30 transition-all"/>
+              <input  type="email"  name='email' placeholder="Ваш E-mail"  className="w-full p-4 bg-gray-200/50 border border-gray-300/50 rounded-xl placeholder:text-gray-500 focus:outline-none focus:ring-1 focus:ring-black/30 transition-all"/>
+              <input  type="text"  name='phone' placeholder="Ваш номер телефона"  className="w-full p-4 bg-gray-200/50 border border-gray-300/50 rounded-xl placeholder:text-gray-500 focus:outline-none focus:ring-1 focus:ring-black/30 transition-all"/>
+              <textarea  placeholder="Ваше сообщение"  rows={4} name='message' className="w-full p-4 bg-gray-200/50 border border-gray-300/50 rounded-xl placeholder:text-gray-500 focus:outline-none focus:ring-1 focus:ring-black/30 transition-all resize-none"></textarea>
             </div>
-            
             <div className="flex justify-end pt-2">
               <Button type="submit" title='Отправить' extraStyle="bg-black text-white px-10 py-3 rounded-2xl font-bold hover:bg-gray-800 transition-all active:scale-95 shadow-md  hover:bg-white hover:text-black"/>
-              
             </div>
           </form>
         </div>

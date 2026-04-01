@@ -3,7 +3,7 @@
 import Button from '@/components/Button'
 import HeroHeader from '@/components/HeroHeader'
 import Image from 'next/image'
-import { useTranslations } from 'next-intl' // 1. Tarjimani import qilamiz
+import { useTranslations } from 'next-intl'  
 import { IconArrowRight } from '@/public/icons/page'
 
 const Hero = () => {
@@ -20,22 +20,9 @@ const Hero = () => {
                   {t('title')}
                 </h1>
                 
-                <Button 
-                  type='button' 
-                  extraStyle='p-4 flex items-center gap-2.5 rounded-t-[13px] text-[#ffffff] rounded-l-[13px] bg-[#000000] hover:bg-white hover:text-black transition-all' 
-                  title={t('button')} 
-                  icon={<IconArrowRight/>} 
-                  iconPost='right'
-                />
+                <Button  type='button'  extraStyle='p-4 flex items-center gap-2.5 rounded-t-[13px] text-[#ffffff] rounded-l-[13px] bg-[#000000] hover:bg-white hover:text-black transition-all'  title={t('button')}  icon={<IconArrowRight/>}  iconPost='right'/>
               </div>
-              <Image 
-                src={"/images/Hero-img.png"} 
-                className='h-150' 
-                alt='Hero img' 
-                width={800} 
-                height={800}
-                priority  
-              />
+              <Image  src={"/images/Hero-img.png"}  className='h-150'  alt='Hero img'  width={800}  height={800} priority  />
             </div>
         </div>
     </section>

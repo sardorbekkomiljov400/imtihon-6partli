@@ -12,7 +12,7 @@ function Button({type,title, icon, iconPost, extraStyle,  onClick }: ButtonProps
   return (
     <button
     type={type}
-      onClick={onClick}
+    onClick={onClick}
       className={`${extraStyle}   border-2  cursor-pointer border-black duration-300 active:opacity-20`}>
       {icon && iconPost === "left" && icon}
       {title && <span className="leading-2">{title}</span>}

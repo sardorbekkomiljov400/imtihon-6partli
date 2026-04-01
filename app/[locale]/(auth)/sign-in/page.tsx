@@ -1,21 +1,21 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { Link } from "@/i18n/navigation";
+import { Link, useRouter } from "@/i18n/navigation"; 
 import { setCookie } from "cookies-next";
 import React, { useState } from "react";
-import { toast, Toaster } from "sonner";
+import { toast } from "sonner";
 import Input from "@/components/Input";
 import { LoginIcon1 } from "@/public/icons/page";
 import { SignIn } from "@/service/page";
 
 const LoginPage = () => {
   const [loading, setLoading] = useState(false);
+  const router = useRouter();  
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
-
     const form = e.currentTarget;
     const data = {
       username: (form.username as HTMLInputElement).value.trim(),
@@ -25,20 +25,22 @@ const LoginPage = () => {
     try {
       const res = await SignIn(data);
       const result = await res.json();
-
+      
       if (!res.ok) throw new Error(result.message || "Login failed");
 
-      // 1. Cookielarni saqlaymiz
+      const user = result.data.user;
       setCookie("token", result.data.accessToken);
-      setCookie("user", `${result.data.user.firstName} ${result.data.user.lastName}`);
+      setCookie("user", `${user.firstName || ""} ${user.lastName || ""}`);
+      setCookie("role", user.role);
 
       toast.success("Profilga muvaffaqiyatli kirdingiz!", { position: "top-center" });
 
-      // 2. SAYTNI RENDER QILISH (Refresh):
-      // router.push ishlatmang, u Header-ni qayta yuklamaydi.
-      // window.location.href saytni to'liq render (refresh) qilib beradi.
       setTimeout(() => {
-        window.location.href = "/"; 
+        if (user.role === "ADMIN") {
+          router.push("/admin"); 
+        } else {
+          router.push("/");
+        }
       }, 1000);
 
     } catch (error: any) {
@@ -52,21 +54,21 @@ const LoginPage = () => {
     <div className="containers py-40 flex items-center justify-center relative">
       <form onSubmit={handleSubmit} className="w-115.75 bg-[#cccccc] rounded-[31px]">
         <div className="flex flex-col items-start gap-8 py-10 px-13 relative pt-20 z-2">
-          <div className="bg-black px-7 py-6 rounded-full absolute -top-10 border-6 border-[#cccccc]">
-            <LoginIcon1 />
-          </div>
-          <h2 className="text-[32px] font-bold">Вход в аккаунт</h2>
-          <Input name="username" title="Ваше имя пользователя" />
-          <Input name="password" type="password" title="Пароль" />
-          <div className="flex w-full justify-center items-center flex-col gap-3">
-            <Button type="submit" disabled={loading} className="w-42.25 h-14.75 hover:bg-white hover:text-black">
-              {loading ? "Loading..." : "Вход в аккаунт"}
-            </Button>
-            <Link href={"/sign-up"} className="text-[#06004C] text-xs cursor-pointer font-bold">
-              Еще нет учетной записи?
-            </Link>
-          </div>
-        </div>
+           <div className="bg-black px-7 py-6 rounded-full absolute -top-10 border-6 border-[#cccccc]">
+             <LoginIcon1 />
+           </div>
+           <h2 className="text-[32px] font-bold">Вход в аккаунт</h2>
+           <Input name="username" title="Ваше имя пользователя" />
+           <Input name="password" type="password" title="Пароль" />
+           <div className="flex w-full justify-center items-center flex-col gap-3">
+             <Button type="submit" disabled={loading} className="w-42.25 h-14.75 hover:bg-white hover:text-black">
+               {loading ? "Loading..." : "Вход в аккаунт"}
+             </Button>
+             <Link href={"/sign-up"} className="text-[#06004C] text-xs cursor-pointer font-bold">
+               Еще нет учетной записи?
+             </Link>
+           </div>
+         </div>
       </form>
     </div>
   );

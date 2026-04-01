@@ -1,15 +1,15 @@
 "use client";
 import Image from "next/image";
 import Button from "./Button";
-import { IconLike, IconShop } from "@/public/icons/page";
-import { Link, usePathname } from "@/i18n/navigation";
+import { IconShop, Ordericon } from "@/public/icons/page";
+import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 
 
 
 const HeroHeader = ({extraClass}:{extraClass?:string}) => {
   const path = usePathname();
-
+  const router = useRouter()
  const t = useTranslations('Navbar')
 
 
@@ -38,8 +38,7 @@ const HeroList = [
       </nav>
 
       <div className="flex items-center gap-7.5">
-      <Button  type="button"  icon={<IconLike />}  iconPost="left"  extraStyle="border-2 border-[#000000] p-1.5 rounded-full hover:bg-red-500 hover:border-red-500 hover:text-white transition-all"/>
-
+      <Button  type="button"  icon={<Ordericon/>}  iconPost="left"  extraStyle="border-2 border-[#000000] p-1.5 rounded-full hover:bg-blue-500 hover:border-blue-900 hover:text-white transition-all" onClick={() => router.push("/reservations_royhati")}/>
       <Button  type="button"  icon={<IconShop />}  iconPost="left"  extraStyle="border-2 border-[#000000] p-1.5 rounded-full  hover:bg-green-500 hover:border-green-500 hover:text-white transition-all"/>
       </div>
     </header>

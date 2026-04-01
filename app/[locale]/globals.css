@@ -15,7 +15,8 @@ body{
   background-image: url("/images/body_login.png");
   background-repeat: no-repeat;
   background-size: cover;
-  min-height: 100vh;
+  min-height:1000px;
+  min-width: 1000px;
 }
 .footer-bg{
   background-image: url("/images/foter_img.png");
@@ -29,6 +30,14 @@ body{
   padding: 0 auto;
 
 }
+
+.admin_bg {
+  background: url("/images/admin_bg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 
 /* hero */
 .hero-bg{

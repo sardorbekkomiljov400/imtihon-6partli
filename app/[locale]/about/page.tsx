@@ -21,15 +21,11 @@ const Abaunt = () => {
     <section className='relative overflow-hidden py-10'>
       <div className='containers relative z-10 p-15 hero-bg rounded-[50px] bg-white/40 backdrop-blur-md shadow-lg border border-white/20'>
         <HeroHeader />
-        
-        {/* Breadcrumbs */}
         <div className="flex items-center text-sm font-normal w-2xl mb-12">
           <Link href="/" className="text-gray-500 hover:text-black transition-colors duration-200">Главная</Link>
           <span className="mx-2 text-gray-400">›</span>
           <span className="text-gray-500 cursor-pointer font-medium hover:text-black transition-colors duration-200">О нас</span>
         </div>
-
-        {/* --- O NAS SECTION --- */}
         <div className="text-center max-w-5xl mx-auto mb-20">
           <h2 className="text-4xl font-bold mb-8 text-black">О нас</h2>
           <div className="space-y-6 text-gray-800 text-[16px] leading-relaxed">
@@ -44,8 +40,6 @@ const Abaunt = () => {
             </p>
           </div>
         </div>
-
-        {/* --- NASHA EDA SECTION --- */}
         <div className="flex flex-col lg:flex-row items-center gap-16 mb-24">
           <div className="flex-1">
             <h2 className="text-3xl font-bold mb-6 text-black">Наша еда</h2>
@@ -57,25 +51,12 @@ const Abaunt = () => {
                 От «Панна Роза» до японской лапши, салата «Мед» и всемирно известных макарон с сыром «Висконсин» — мы используем только самые лучшие и полезные ингредиенты.
               </p>
             </div>
-            <Button 
-              type="button" 
-              title="Посмотреть меню" 
-              icon={<IconArrowRight/>} 
-              iconPost="right" 
-              extraStyle="p-[20px] flex items-center gap-[10px] text-[18px] font-semibold bg-[#000000] rounded-t-[13px] rounded-l-[13px] text-[#ffffff] hover:bg-white hover:text-black transition-all"
-            />
+            <Button  type="button"  title="Посмотреть меню"  icon={<IconArrowRight/>}  iconPost="right"  extraStyle="p-[20px] flex items-center gap-[10px] text-[18px] font-semibold bg-[#000000] rounded-t-[13px] rounded-l-[13px] text-[#ffffff] hover:bg-white hover:text-black transition-all"/>
           </div>
           <div className="flex-1 relative w-full aspect-[4/3]">
-            <Image 
-              src="/images/about1.png" 
-              alt="Food bowl" 
-              fill 
-              className="object-cover rounded-[40px] shadow-md"
-            />
+            <Image  src="/images/about1.png"  alt="Food bowl"  fill  className="object-cover rounded-[40px] shadow-md"/>
           </div>
         </div>
-
-        {/* --- NASH PUT SECTION --- */}
         <div className="flex flex-col lg:flex-row-reverse items-center gap-16 mb-24">
           <div className="flex-1">
             <h2 className="text-3xl font-bold mb-6 text-black">Наш путь</h2>
@@ -89,39 +70,22 @@ const Abaunt = () => {
             </div>
           </div>
           <div className="flex-1 relative w-full aspect-[4/3]">
-            <Image 
-              src="/images/about2.png" 
-              alt="Burger Path" 
-              fill 
-              className="object-cover rounded-[40px] shadow-md"
-            />
+            <Image  src="/images/about2.png"  alt="Burger Path"  fill className="object-cover rounded-[40px] shadow-md"/>
           </div>
         </div>
-
-        {/* --- NASHA KOMANDA SECTION --- */}
         <div className="mb-24 px-4">
           <h2 className="text-4xl font-bold text-center mb-16 text-black">Наша команда</h2>
-          
-          {/* Top Row: Oshpazlar */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 mb-16">
             {chefs.map((item) => (
               <div key={item.id} className="flex flex-col items-center">
                 <div className="relative w-56 h-56 rounded-full overflow-hidden border-4 border-white shadow-lg mb-6">
-                  <Image 
-                    src={item.img} 
-                    alt={item.role} 
-                    fill 
-                    sizes="224px"
-                    className="object-cover" 
-                  />
+                  <Image  src={item.img}  alt={item.role}  fill  sizes="224px" className="object-cover" />
                 </div>
                 <h4 className="text-xl font-bold text-black">{item.name}</h4>
                 <p className="text-gray-500 text-sm italic">{item.role}</p>
               </div>
             ))}
           </div>
-
-          {/* Bottom Row: Ofitsiantlar */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
             {waiters.map((item) => (
               <div key={item.id} className="flex flex-col items-center">

@@ -38,8 +38,7 @@ const Header = () => {
     router.refresh();  
   };
 
-    const isAuthPage = path.includes("sign-in") || path.includes("sign-up");
-
+    const isAuthPage = path.includes("sign-in") || path.includes("sign-up") || path.includes("admin");
 
   return (
        <header className={`pt-3 pb-11.25 ${isAuthPage? "hidden" : ""}`}>
@@ -72,27 +71,12 @@ const Header = () => {
       </div>
 
       {modalOpen && (
-        <Modal
-          open={modalOpen}
-          onClose={() => setModalOpen(false)}
-          title="Аккаунт"
-          footer={
-            <div className="flex gap-3 justify-end">
-              <button
-                className="px-3 py-1 rounded bg-gray-200 text-black"
-                onClick={() => setModalOpen(false)}
-              >
-                Bekor qilish
-              </button>
-              <button
-                className="px-3 py-1 rounded bg-red-500 text-white"
-                onClick={handleLogout}
-              >
-                Chiqish
-              </button>
+        <Modal open={modalOpen} onClose={() => setModalOpen(false)} title="Аккаунт"
+          footer={<div className="flex gap-3 justify-end">
+              <button className="px-3 py-1 rounded bg-gray-200 text-black" onClick={() => setModalOpen(false)}>Bekor qilish</button>
+              <button className="px-3 py-1 rounded bg-red-500 text-white"onClick={handleLogout}>Chiqish</button>
             </div>
-          }
-        >
+          }>
           <p>Haqiqatan ham chiqmoqchimisiz?</p>
         </Modal>
       )}

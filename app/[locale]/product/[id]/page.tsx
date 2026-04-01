@@ -57,48 +57,26 @@ const ProductClient = () => {
     <section className="hero-bg2 pb-20">
       <div className="containers py-16">
         <HeroHeader extraClass="mb-16" />
-
-        {/* breadcrumb */}
         <div className="flex items-center text-sm mb-8">
-          <Link href="/" className="text-gray-500 hover:text-black transition">
-            Главная
-          </Link>
+          <Link href="/" className="text-gray-500 hover:text-black transition">Главная</Link>
           <span className="mx-2 text-gray-400">›</span>
-           <Link href="/menu" className="text-gray-500 hover:text-black transition">
-            Меню
-          </Link>
+           <Link href="/menu" className="text-gray-500 hover:text-black transition">Меню</Link>
           <span className="mx-2 text-gray-400">›</span>
           <span className="text-black font-medium">{product.name}</span>
         </div>
- 
-        {/* product card */}
         <div className="hero-bg2 rounded-3xl shadow-lg p-10 flex flex-col lg:flex-row gap-12 items-center">
-
-          {/* image */}
           <div className="flex justify-center w-full lg:w-105">
-            <Image
-              src={`https://anorkhulov.uz/${product.image}`}
-              alt={product.name}
-              width={420}
-              height={420}
-              className="rounded-2xl object-contain"
-            />
+            <Image src={`https://anorkhulov.uz/${product.image}`} alt={product.name} width={420} height={420} className="rounded-2xl object-contain"/>
           </div>
-
-          {/* info */}
           <div className="flex-1">
             <h2 className="text-3xl font-bold mb-4">{product.name}</h2>
-
             <p className="text-gray-600 mb-6 leading-relaxed">
               {product.description}
             </p>
-
-            {/* rating */}
             <div className="flex items-center gap-4 mb-6">
               <strong className="text-2xl font-bold">
-                {product.price}$
+              {product.price}$
               </strong>
-
               <span className="flex items-center gap-1 text-yellow-500">
                 <RetingIcon />
                 <RetingIcon />
@@ -107,42 +85,17 @@ const ProductClient = () => {
                 <RetingIcon />
                 <span className="text-black ml-1">{product.rating}</span>
               </span>
-
-              <Link href="#" className="text-blue-600 hover:underline">
-                (Смотреть отзывы)
-              </Link>
+              <Link href="#" className="text-blue-600 hover:underline">(Смотреть отзывы)</Link>
             </div>
-
-            {/* quantity */}
             <div className="flex items-center gap-3 mb-6">
-              <Button
-                type="button"
-                onClick={decrease}
-                title="−"
-                extraStyle="w-10 h-10 flex items-center justify-center rounded-lg border text-xl font-bold hover:bg-gray-100"
-              />
-
+              <Button type="button" onClick={decrease} title="−" extraStyle="w-10 h-10 flex items-center justify-center rounded-lg border text-xl font-bold hover:bg-gray-100"/>
               <span className="w-12 text-center font-semibold text-lg">
                 {quantity}
               </span>
-
-              <Button
-                type="button"
-                onClick={increase}
-                title="+"
-                extraStyle="w-10 h-10 flex items-center justify-center rounded-lg border text-xl font-bold hover:bg-gray-100"
-              />
+              <Button type="button" onClick={increase} title="+" extraStyle="w-10 h-10 flex items-center justify-center rounded-lg border text-xl font-bold hover:bg-gray-100"/>
             </div>
-
-            {/* add to cart */}
-            <Button
-              type="button"
-              title="В корзину"
-              extraStyle="bg-black text-white px-8 py-3 rounded-xl hover:bg-gray-800 transition"
-              onClick={() => handleAddToCart(Number(product.id))}
-            />
+            <Button type="button" title="В корзину" extraStyle="bg-black text-white px-8 py-3 rounded-xl hover:bg-gray-800 transition" onClick={() => handleAddToCart(Number(product.id))}/>
           </div>
-
         </div>
       </div>
     </section>

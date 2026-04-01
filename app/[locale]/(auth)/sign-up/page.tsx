@@ -69,6 +69,7 @@ const RegisterPage = () => {
     }
   };
 
+  
   return (
     <div className="containers flex py-15 justify-center relative">
       <form onSubmit={handleSubmit} className="w-115.75 bg-[#cccccc] rounded-[31px]">

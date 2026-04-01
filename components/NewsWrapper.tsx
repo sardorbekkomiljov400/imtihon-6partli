@@ -14,10 +14,6 @@ type NewType = {
     description:string,
     image:string,
 }
-
-
-
-
 const Gallery = () => {
         const [news, setNews] = useState<NewType[]>([]);
 

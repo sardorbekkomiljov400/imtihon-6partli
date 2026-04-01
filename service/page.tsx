@@ -4,7 +4,6 @@ if (!BASE_URL) {
   throw new Error("NEXT_PUBLIC_API .env da topilmadi");
 }
 
-/* ================= AUTH ================= */
 
 export const SignIn = (body: { username: string; password: string }) => {
   return fetch(`${BASE_URL}auth/signin`, {
@@ -32,8 +31,6 @@ export const Signup = (body: {
   });
 };
 
-/* ================= GET ================= */
-
 export const getAll = (URL: string) => {
   return fetch(`${BASE_URL}${URL}`, {
     method: "GET",
@@ -42,8 +39,6 @@ export const getAll = (URL: string) => {
     },
   });
 };
-
-/* ================= CART ================= */
 
 export const addCartItem = (body: {
   userId: number;
@@ -69,3 +64,16 @@ export const sendContact = (body: {name:string; email:string, phone:string, mess
     body: JSON.stringify(body),
   })
 }
+
+export const cerateBron = (body: {email:string, guestCount:number, reservationDate:string , reservationTime:string, tableId:number }) =>{
+  return fetch(`${BASE_URL}reservations/create`, {
+    method:"POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(body)
+  })
+}
+
+
+ 

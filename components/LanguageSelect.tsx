@@ -57,13 +57,7 @@ export default function LanguageSelect() {
 
       <div className="absolute left-0 top-[110%] w-full bg-white border border-gray-200 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 overflow-hidden">
         {langs.map(l => (
-          <div
-            key={l.code}
-            onClick={() => changeLang(l.code as Lang)}
-            className={`flex items-center gap-3 px-4 py-2 hover:bg-green-400 hover:text-white cursor-pointer transition ${
-              locale === l.code ? "bg-gray-50 text-green-600" : "text-gray-700"
-            }`}
-          >
+          <div key={l.code} onClick={() => changeLang(l.code as Lang)} className={`flex items-center gap-3 px-4 py-2 hover:bg-green-400 hover:text-white cursor-pointer transition ${ locale === l.code ? "bg-gray-50 text-green-600" : "text-gray-700"}`}>
             {l.icon}
             <span>{l.label}</span>
           </div>

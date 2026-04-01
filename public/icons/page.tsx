@@ -1,17 +1,27 @@
+interface IconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
 interface IconProps {
   className?: string;
 }
-
-
+interface IconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
 export const RetingIcon = () => (
         <svg width="28" height="27" viewBox="0 0 28 27" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M13.79 0L17.0455 10.0193L27.5804 10.0193L19.0575 16.2115L22.3129 26.2307L13.79 20.0385L5.26715 26.2307L8.52261 16.2115L-0.00028038 10.0193L10.5346 10.0193L13.79 0Z" fill="#C1C0C0"/>
     </svg>
 
     )
-
-
-
+export const Ordericon =() => (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M3 6H14" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+  <path d="M3 12H14" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+  <path d="M3 18H9" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+  
+  <path d="M16 14L19 17L23 11" stroke="#22C55E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+</svg>
+)
 export const LoginIcon1 = () => {
   return (
     <svg
@@ -35,14 +45,12 @@ export const LoginIcon1 = () => {
     </svg>
   );
 };
-
 export const Brond1icon = () => (
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M12 15.5C11.7374 15.5005 11.4772 15.449 11.2346 15.3486C10.9919 15.2483 10.7715 15.1009 10.586 14.915L5.29297 9.62103L6.70697 8.20703L12 13.5L17.293 8.20703L18.707 9.62103L13.414 14.914C13.2285 15.1001 13.0081 15.2476 12.7655 15.3482C12.5228 15.4488 12.2626 15.5004 12 15.5Z" fill="black"/>
 </svg>
 
 )
-
 export const Brond2icon = () => (
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g clipPath="url(#clip0_201_2928)">
@@ -62,7 +70,6 @@ export const Brond2icon = () => (
 </svg>
 
 )
-
 export const Bround3icon = () => (
   <svg
     width="28"
@@ -80,7 +87,6 @@ export const Bround3icon = () => (
     />
   </svg>
 )
-
 export const Bround4icon = () => (
     <svg width="51" height="51" viewBox="0 0 51 51" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g clipPath="url(#clip0_201_2937)">
@@ -94,18 +100,6 @@ export const Bround4icon = () => (
 </svg>
 
 )
-
-interface IconProps extends React.SVGProps<SVGSVGElement> {
-  size?: number | string;
-}
-
-// bayroq icon svg IA 
- // Umumiy interfeys (SVG xususiyatlari uchun)
-interface IconProps extends React.SVGProps<SVGSVGElement> {
-  size?: number | string;
-}
-
-// 1. O'ZBEKISTON BAYROG'I
 export const UzbekistanFlag: React.FC<IconProps> = ({ size = 24, ...props }) => {
   return (
     <svg 
@@ -138,8 +132,6 @@ export const UzbekistanFlag: React.FC<IconProps> = ({ size = 24, ...props }) => 
     </svg>
   );
 };
-
-// 2. FRANSIYA BAYROG'I
 export const FranceFlag: React.FC<IconProps> = ({ size = 24, ...props }) => {
   return (
     <svg 
@@ -155,9 +147,6 @@ export const FranceFlag: React.FC<IconProps> = ({ size = 24, ...props }) => {
     </svg>
   );
 };
-
-// ---------------------------------------tugadi
-
 export const Bround5icon =() => (
  <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g clipPath="url(#clip0_201_2942)">
@@ -257,7 +246,7 @@ export const IconLike = ({ className }: IconProps) => (
 
 )
 export const IconShop =({ className }: IconProps) => (
-    <svg width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width="24" height="24" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g clipPath="url(#clip0_201_2162)">
         <path d="M-0.000143943 0.531527C0.162772 0.128629 0.464165 -0.0116303 0.884126 0.000745401C1.5462 0.0199965 2.20872 0.00441206 2.8708 0.0062455C3.34506 0.0062455 3.57314 0.197382 3.68266 0.665827C3.87725 1.49867 4.07411 2.33059 4.27368 3.17672H4.51398C8.89099 3.17672 13.2678 3.17672 17.6446 3.17672C17.9333 3.17672 18.198 3.22623 18.3754 3.48612C18.4353 3.57403 18.4751 3.67436 18.4919 3.77981C18.5088 3.88526 18.5022 3.99318 18.4727 4.09574C18.0283 5.91298 17.5851 7.72946 17.1431 9.54518C17.0323 9.99942 16.9232 10.4541 16.8064 10.9065C16.7055 11.2961 16.4756 11.479 16.0778 11.479C12.5199 11.4808 8.96189 11.4808 5.40369 11.479C4.99097 11.479 4.757 11.2847 4.66061 10.8776C3.92718 7.77637 3.19376 4.67419 2.46034 1.57109C2.44812 1.51884 2.43228 1.46796 2.41508 1.40974C1.90552 1.40974 1.40546 1.39049 0.907206 1.4157C0.481362 1.43725 0.174087 1.29974 -0.00195312 0.897757L-0.000143943 0.531527ZM5.89967 10.0677C5.95262 10.0714 5.9938 10.0773 6.03544 10.0773C9.16583 10.0773 12.2961 10.0783 15.4262 10.0801C15.5456 10.0801 15.5882 10.0402 15.6162 9.92379C15.9596 8.50165 16.3065 7.08073 16.6571 5.66104C16.7426 5.31085 16.8263 4.9602 16.9132 4.60177H4.60992L5.89967 10.0677Z" fill="white"/>
         <path d="M6.29846 12.4818C7.58594 12.5175 8.61865 13.5818 8.58878 14.8414C8.55755 16.1523 7.50267 17.1914 6.24098 17.157C4.93313 17.1213 3.93301 16.062 3.97102 14.7562C4.00949 13.476 5.06165 12.4479 6.29846 12.4818ZM7.19132 14.8254C7.1891 14.5789 7.0918 14.3432 6.92022 14.1684C6.74864 13.9937 6.51639 13.8939 6.27311 13.8903C5.77531 13.8903 5.34856 14.3258 5.3549 14.8272C5.36005 15.0708 5.45761 15.303 5.62732 15.4757C5.79703 15.6483 6.02586 15.7482 6.26632 15.7545C6.75959 15.7627 7.18906 15.3305 7.19132 14.8254Z" fill="white"/>
@@ -408,9 +397,6 @@ export const UserIcon = () => (
     </svg>
 
 )
-
-
-
 export const Telegram = () => (
     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g clipPath="url(#clip0_201_2370)">
