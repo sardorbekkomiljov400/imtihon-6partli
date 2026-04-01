@@ -1,10 +1,14 @@
 "use client"
-import { usePathname, useRouter } from "@/i18n/navigation"
+
+import { useEffect } from "react"
+import { useRouter } from "@/i18n/navigation"
 
 export default function AdminPage() {
   const router = useRouter()
-  router.push("admin/users")
-  return (
-   <div></div>
-  )
+
+  useEffect(() => {
+    router.push("/admin/users")
+  }, [router])
+
+  return <div></div>
 }
