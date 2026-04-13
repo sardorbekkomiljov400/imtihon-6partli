@@ -13,7 +13,7 @@ const Popular = () => {
   const dishes = [1, 2, 3, 4,5,6]
 
   return (
-    <section className="py-15 Popular-bg">
+    <section className="py-15">
       <div className="containers">
         <h2 className="text-[48px] text-[#000000] text-center font-extrabold mb-30">{t("title")}</h2>
         <Carousel opts={{align:'start'}}>
