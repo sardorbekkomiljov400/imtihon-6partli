@@ -74,7 +74,7 @@ const Menu = () => {
   if (loading) {
     return (
       <div className="mx-auto text-center mb-30 py-50 w-325 rounded-[28px] bg-white/50">
-        <p>Loading...</p>
+        <p>Loading..</p>
       </div>
     );
   }
