@@ -44,12 +44,7 @@ body{
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.4) 100%);
 }
 
-/* Popular */
-.Popular-bg{
-  background-image: url("/images/Popular-bg-right.png"), url("/images/Popular-bg-lefth.png");
-  background-repeat: no-repeat;
-  background-position: top right , bottom left;
-}
+ 
 
 /* Booking */
 .booking-bg , .bg-ic{
