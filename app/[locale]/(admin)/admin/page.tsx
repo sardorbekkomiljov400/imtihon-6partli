@@ -1,5 +1,13 @@
-import { redirect } from "next/navigation"
+
+import { useEffect } from "react"
+import { useRouter } from "@/i18n/navigation"
 
 export default function AdminPage() {
-  redirect("/admin/users")
+  const router = useRouter()
+
+  useEffect(() => {
+    router.push("/admin/users")
+  }, [router])
+
+  return <div></div>
 }
